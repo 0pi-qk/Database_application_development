@@ -1,0 +1,386 @@
+openapi: 3.0.0
+info:
+  title: PHP REST API
+  version: 0.0.1
+paths: 
+  ?table={table_name}&id1={N1}&id2={N2}:
+    get:
+      servers:
+        - url: http://server.loc/post/load.php
+      tags:
+        - load
+      parameters:
+        - name: table_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: N1
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: N2
+          in: path
+          required: true
+          schema:
+            type: integer
+      summary: load object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table={table_name}&N={N}:
+    get:
+      servers:
+        - url: http://server.loc/post/delete.php
+      tags:
+        - delete
+      parameters:
+        - name: table_name
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+      summary: delete object
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=clients&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/insert.php
+      tags:
+        - Clients
+      parameters:
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Clients'
+      summary: insert Clients
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=cashiers&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/insert.php
+      tags:
+        - Cashiers
+      parameters:
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Cashiers'
+      summary: insert Cashiers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=currencies&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/insert.php
+      tags:
+        - Currencies
+      parameters:
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Currencies'
+      summary: insert Currencies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=rates&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/insert.php
+      tags:
+        - Rates
+      parameters:
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Rates'
+      summary: insert Rates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=transactions&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/insert.php
+      tags:
+        - Transactions
+      parameters:
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Transactions'
+      summary: insert Transactions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=clients&N={N}&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/update.php
+      tags:
+        - Clients
+      parameters:
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Clients'
+      summary: update Clients
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=cashiers&N={N}&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/update.php
+      tags:
+        - Cashiers
+      parameters:
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Cashiers'
+      summary: update Cashiers
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=currencies&N={N}&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/update.php
+      tags:
+        - Currencies
+      parameters:
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/Currencies'
+      summary: update Currencies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=rates&N={N}&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/update.php
+      tags:
+        - Rates
+      parameters:
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/RatesUpdate'
+      summary: update Rates
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+  ?table=transactions&N={N}&{id_obj}:
+    get:
+      servers:
+        - url: http://server.loc/post/update.php
+      tags:
+        - Transactions
+      parameters:
+        - name: N
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: id_obj
+          in: path
+          required: true
+          style: form
+          explode: true
+          schema:
+            $ref: '#/components/schemas/TransactionsUpdate'
+      summary: update Transactions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schemas:
+components:
+  schemas:
+    Clients:
+      type: object
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        patronymic:
+          type: string
+        passport_series:
+          type: string
+        passport_number:
+          type: string
+    Cashiers:
+      type: object
+      properties:
+        name:
+          type: string
+        surname:
+          type: string
+        patronymic:
+          type: string
+    Currencies:
+      type: object
+      properties:
+        code:
+          type: integer
+        name:
+          type: string
+    Rates:
+      type: object
+      properties:
+        Nsold:
+          type: integer
+        Npurchased:
+          type: integer
+        sale_rate:
+          type: string
+        purchase_rate:
+          type: string
+    Transactions:
+      type: object
+      properties:
+        Nsold:
+          type: integer
+        Npurchased:
+          type: integer
+        Nclient:
+          type: integer
+        Ncashier:
+          type: integer
+        type:
+          type: integer
+        money:
+          type: string
+    RatesUpdate:
+      type: object
+      properties:
+        Nsold:
+          type: integer
+        Npurchased:
+          type: integer
+        date:
+          type: string
+          format: "yyyy-mm-dd"
+        sale_rate:
+          type: string
+        purchase_rate:
+          type: string
+    TransactionsUpdate:
+      type: object
+      properties:
+        Nsold:
+          type: integer
+        Npurchased:
+          type: integer
+        Nclient:
+          type: integer
+        Ncashier:
+          type: integer
+        rate_sold:
+          type: string
+        rate_purchased:
+          type: string
+        date:
+          type: string
+          format: "yyyy-mm-dd"
+        sum_sold:
+          type: string
+        sum_purchased:
+          type: string
